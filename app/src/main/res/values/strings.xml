@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Home</string>
+
+    <string name="levels_access">Уровни доступа</string>
+    <string name="types_devices">Типы устройств</string>
+    <string name="types_events">Типы событий</string>
+    <string name="types_data">Типы данных</string>
+    <string name="types_commands">Типы команд</string>
+    <string name="add_data">Добавить данные</string>
+    <string name="websocket">Websocket</string>
+    <string name="title_activity_login">Авторизация</string>
+
+
+    <string name="auth.email">Е-mail</string>
+    <string name="auth.password">Пароль</string>
+    <string name="auth.sign_in">Войти</string>
+
+    //Errors
+    <string name="error.incorrect_email">Некорректный e-mail</string>
+    <string name="error.invalid_password">Длина пароля должна быть от 6 до 20 символов</string>
+    <string name="error.incorrect_password">Некорректный пароль</string>
 </resources>
