@@ -1,4 +1,4 @@
-package pro.home.my;
+package pro.home.my.utils.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +12,10 @@ import com.jakewharton.rxbinding2.widget.RxTextView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import pro.home.my.FormValidator;
+import pro.home.my.R;
 
-public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
+public class RegistrationActivity extends BaseActivity{
 
     @BindView(R.id.emailEditText)
     EditText emailEditText;
@@ -46,77 +48,54 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @BindView(R.id.errorPhoneTextView)
     TextView errorPhoneTextView;
 
-    private Observable<Boolean> o1;
-    private Observable<Boolean> o2;
-    private Observable<Boolean> o3;
-    private Observable<Boolean> o4;
-    private Observable<Boolean> o5;
-    private Observable<Boolean> o6;
-    private Observable<Boolean> o7;
-
+    private Observable observable;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         ButterKnife.bind(this);
 
-        o1 = RxTextView.textChanges(emailEditText)
+        Observable<Boolean> o1 = RxTextView.textChanges(emailEditText)
                 .map(CharSequence::toString)
-                .map(this::checkEmail);
+                .map(FormValidator::isEmailValid);
 
-        o2 = RxTextView.textChanges(loginEditText)
+        Observable<Boolean> o2 = RxTextView.textChanges(loginEditText)
                 .map(CharSequence::toString)
-                .map(this::checkLogin);
+                .map(FormValidator::isLoginValid);
 
-        o3 = RxTextView.textChanges(passwordEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isPasswordValid);
-
-        o4 = RxTextView.textChanges(passwordConfirmEditText)
+        Observable<Boolean> o3 = RxTextView.textChanges(passwordEditText)
                 .map(CharSequence::toString)
                 .map(FormValidator::isPasswordValid);
 
-        o5 = RxTextView.textChanges(nameEditText)
+        Observable<Boolean> o4 = RxTextView.textChanges(passwordConfirmEditText)
+                .map(CharSequence::toString)
+                .map(FormValidator::isPasswordValid);
+
+        Observable<Boolean> o5 = RxTextView.textChanges(nameEditText)
                 .map(CharSequence::toString)
                 .map(FormValidator::isNameValid);
 
-        o6 = RxTextView.textChanges(surnameEditText)
+        Observable<Boolean> o6 = RxTextView.textChanges(surnameEditText)
                 .map(CharSequence::toString)
                 .map(FormValidator::isNameValid);
 
-        o7 = RxTextView.textChanges(phoneEditText)
+        Observable<Boolean> o7 = RxTextView.textChanges(phoneEditText)
                 .map(CharSequence::toString)
                 .map(FormValidator::isPhoneValid);
-        registerButton.setOnClickListener(this);
 
-        Observable.combineLatest(o1, o2, o3, o4, o5, o6, o7, this::isRegistrationValid)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(res -> {
+        registerButton.setOnClickListener(view -> {
+            add(Observable.combineLatest(o1, o2, o3, o4, o5, o6, o7, this::isRegistrationValid)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(AndroidSchedulers.mainThread())
+                    .subscribe(res -> {
 
-                });
-    }
-
-    private boolean checkEmail(String email){
-        if(FormValidator.isEmailValid(email)){
-            errorEmailTextView.setVisibility(View.GONE);
-            return true;
-        }
-        errorEmailTextView.setVisibility(View.VISIBLE);
-        return false;
-    }
-
-    private boolean checkLogin(String login){
-        if(FormValidator.isLoginValid(login)){
-            errorLoginTextView.setVisibility(View.GONE);
-            return true;
-        }
-        errorLoginTextView.setVisibility(View.VISIBLE);
-        return false;
+                    }));
+        });
     }
 
     private boolean isRegistrationValid(boolean v1, boolean v2, boolean v3, boolean v4, boolean v5, boolean v6, boolean v7){
-
+        errorEmailTextView.setVisibility(v1 ? View.GONE : View.VISIBLE);
+        errorLoginTextView.setVisibility(v2 ? View.GONE : View.VISIBLE);
         errorPsw1TextView.setVisibility(v3 ? View.GONE : View.VISIBLE);
         errorPsw2TextView.setVisibility(v4 ? View.GONE : View.VISIBLE);
         errorNameTextView.setVisibility(v5 ? View.GONE : View.VISIBLE);
@@ -125,8 +104,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         return v1 && v2 && v3 && v4 && v5 && v6 && v7;
     }
 
-    @Override public void onClick(View view) {
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dispose();
     }
 }
 
