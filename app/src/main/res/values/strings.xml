@@ -13,10 +13,24 @@
 
     <string name="auth.email">Е-mail</string>
     <string name="auth.password">Пароль</string>
-    <string name="auth.sign_in">Войти</string>
+    <string name="auth.confirm_password">Подтвеждение пароля</string>
+    <string name="auth.login">Логин</string>
+    <string name="auth.name">Имя</string>
+    <string name="auth.surname">Фамилия</string>
+    <string name="auth.phone">Телефон</string>
+    <string name="auth.requered_fielsds">* - обязательные для заполнения поля</string>
 
-    //Errors
+    <!-- Buttons -->
+    <string name="button.sign_in">Войти</string>
+    <string name="button.registration">Регистрация</string>
+    <string name="button.register">Зарегистрироваться</string>
+
+    <!-- Errors -->
+    <string name="error.invalid_sign">Неверный логин или пароль</string>
     <string name="error.incorrect_email">Некорректный e-mail</string>
-    <string name="error.invalid_password">Длина пароля должна быть от 6 до 20 символов</string>
-    <string name="error.incorrect_password">Некорректный пароль</string>
+    <string name="error.incorrect_login">Неккоректный логин</string>
+    <string name="error.incorrect_name">Имя должно содержать только буквы</string>
+    <string name="error.incorrect_surname">Фамилия должна содержать только буквы</string>
+    <string name="error.incorrect_phone">Неккоректный номер телефона</string>
+    <string name="error.length_password">Длина пароля должна быть от 6 до 20 символов</string>
 </resources>

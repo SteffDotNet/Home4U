@@ -6,6 +6,10 @@
 
     <color name="colorText">#00867d</color>
     <color name="text.white">#ffffff</color>
+    <color name="text.error">#df5629</color>
 
-    <color name="button.sign_in">#00867d</color>
+    <color name="button.auth">#00867d</color>
+
+    <color name="hint.error">#f57c00</color>
+    <color name="hint.normal">#509f1a</color>
 </resources>

@@ -10,17 +10,19 @@
         style="@style/LoginContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
         <android.support.design.widget.TextInputLayout
-            style="@style/LoginContainer.Input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_medium">
 
             <EditText
                 android:id="@+id/loginEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_medium"
                 android:inputType="textEmailAddress"
                 android:hint="@string/auth.email"/>
 
@@ -29,6 +31,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_medium"
             app:passwordToggleContentDescription="description"
             app:passwordToggleTint="@color/colorPrimaryDark"
             app:passwordToggleEnabled="true">
@@ -37,22 +40,32 @@
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_medium"
                 android:inputType="textPassword"
                 android:hint="@string/auth.password"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:id="@+id/signButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/indent_large"
             android:padding="@dimen/indent_small"
-            android:background="@color/button.sign_in"
+            android:background="@color/button.auth"
             android:textColor="@color/text.white"
-            android:text="@string/auth.sign_in"/>
+            android:text="@string/button.sign_in"/>
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/registrationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/button.registration"/>
 
 
 </RelativeLayout>
