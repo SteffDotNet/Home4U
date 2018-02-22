@@ -1,4 +1,4 @@
-package pro.home.my.utils.activity;
+package pro.home.my.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

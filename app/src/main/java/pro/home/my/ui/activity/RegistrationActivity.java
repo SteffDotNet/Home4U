@@ -1,6 +1,5 @@
-package pro.home.my.utils.activity;
+package pro.home.my.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +10,7 @@ import butterknife.ButterKnife;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import pro.home.my.FormValidator;
+import pro.home.my.utils.FormValidator;
 import pro.home.my.R;
 
 public class RegistrationActivity extends BaseActivity{

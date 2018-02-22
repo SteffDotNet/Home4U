@@ -1,4 +1,4 @@
-package pro.home.my.utils.activity;
+package pro.home.my.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import com.jakewharton.rxbinding2.widget.RxTextView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import pro.home.my.FormValidator;
+import pro.home.my.utils.FormValidator;
 import pro.home.my.R;
 
 public class LoginActivity extends AppCompatActivity {

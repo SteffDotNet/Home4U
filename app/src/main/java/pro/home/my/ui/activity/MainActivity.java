@@ -1,4 +1,4 @@
-package pro.home.my.utils.activity;
+package pro.home.my.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
