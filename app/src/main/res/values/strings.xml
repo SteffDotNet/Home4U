@@ -20,6 +20,8 @@
     <string name="auth.phone">Телефон</string>
     <string name="auth.requered_fielsds">* - обязательные для заполнения поля</string>
 
+    <string name="dialog.wait">Подождите ...</string>
+
     <!-- Buttons -->
     <string name="button.sign_in">Войти</string>
     <string name="button.registration">Регистрация</string>

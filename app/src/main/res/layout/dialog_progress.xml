@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+  <LinearLayout
+      style="@style/DialogContainer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_centerInParent="true">
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/DialogText"
+        android:text="@string/dialog.wait"/>
+
+    <ProgressBar
+        android:layout_width="@dimen/indent_medium"
+        android:layout_height="@dimen/indent_medium"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/colorPrimary"/>
+
+  </LinearLayout>
+
+
+
+</RelativeLayout>
