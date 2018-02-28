@@ -22,8 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailEditText;
     @BindView(R.id.passwordEditText)
     EditText passwordEditText;
-    @BindView(R.id.registrationTextView)
-    TextView registrationTextView;
+    @BindView(R.id.sign_upTextView)
+    TextView sign_upTextView;
     @BindView(R.id.signButton)
     Button signButton;
 
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        registrationTextView.setOnClickListener(v -> {startActivity(new Intent(this, RegistrationActivity.class));});
+        sign_upTextView.setOnClickListener(v -> {startActivity(new Intent(this, RegistrationActivity.class));});
     }
 
     private boolean checkInput(boolean isEmail, boolean isPassword){

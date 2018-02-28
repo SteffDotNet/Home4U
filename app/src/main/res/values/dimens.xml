@@ -1,11 +1,16 @@
 <resources>
     <dimen name="textSize_small">8sp</dimen>
+    <dimen name="textSize_xsmall">10sp</dimen>
     <dimen name="textSize_normal">12sp</dimen>
     <dimen name="textSize_medium">14sp</dimen>
     <dimen name="textSize_large">16sp</dimen>
+    <dimen name="textSize_xlarge">20sp</dimen>
+    <dimen name="textSize_xxlarge">25sp</dimen>
 
     <dimen name="indent_small">3dp</dimen>
     <dimen name="indent_normal">8dp</dimen>
     <dimen name="indent_medium">14dp</dimen>
     <dimen name="indent_large">18dp</dimen>
+    <dimen name="indent_xlarge">25dp</dimen>
+    <dimen name="indent_xxlarge">30dp</dimen>
 </resources>

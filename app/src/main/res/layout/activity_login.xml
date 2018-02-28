@@ -2,70 +2,121 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/linearLayout"
         style="@style/LoginContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_xlarge"
+                android:text="@string/app_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/indent_normal"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/text.primaryLight"
+                android:text="@string/auth.sign_continue"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_medium">
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/loginEditText"
+            <android.support.design.widget.TextInputLayout
+                android:theme="@style/TextlayoutInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textSize_medium"
-                android:inputType="textEmailAddress"
-                android:hint="@string/auth.email"/>
+                android:layout_marginTop="@dimen/indent_medium">
 
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/loginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/auth.email"
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/textSize_medium"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_medium"
-            app:passwordToggleContentDescription="description"
-            app:passwordToggleTint="@color/colorPrimaryDark"
-            app:passwordToggleEnabled="true">
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/passwordEditText"
+            <android.support.design.widget.TextInputLayout
+                android:theme="@style/TextlayoutInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textSize_medium"
-                android:inputType="textPassword"
-                android:hint="@string/auth.password"/>
+                android:layout_marginTop="@dimen/indent_medium">
 
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/auth.password"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/textSize_medium"
+                    android:textColorHint="@color/text.primaryLight"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/signButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_large"
-            android:padding="@dimen/indent_small"
-            android:background="@color/button.auth"
+            android:layout_height="35dp"
+            android:layout_above="@id/layoutBottom"
+            android:background="@drawable/button_login"
+            android:textSize="@dimen/textSize_normal"
+            android:textAllCaps="false"
             android:textColor="@color/text.white"
-            android:text="@string/button.sign_in"/>
+            android:text="@string/button.login"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_medium"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/registrationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:text="@string/button.registration"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/indent_normal"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/text.primaryLight"
+                android:text="@string/auth.no_account"/>
+
+            <TextView
+                android:id="@+id/sign_upTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/indent_normal"
+                android:layout_marginLeft="@dimen/indent_small"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/text.primary"
+                android:textStyle="bold"
+                android:text="@string/button.sign_up"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
 
 
 </RelativeLayout>

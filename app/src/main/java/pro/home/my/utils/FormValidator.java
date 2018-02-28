@@ -22,6 +22,10 @@ public class FormValidator {
         return !TextUtils.isEmpty(password) && (password.length() > MIN_LENGT_PSW && password.length() < MAX_LENGT_PSW);
     }
 
+    public static boolean isPasswordEquals(String psw1, String psw2){
+        return TextUtils.equals(psw1, psw2);
+    }
+
     public static boolean isLoginValid(String login){
         return !TextUtils.isEmpty(login) && Pattern.compile(REGEX_LOGIN).matcher(login).matches();
     }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home</string>
+    <string name="app_name">Home4U</string>
 
     <string name="levels_access">Уровни доступа</string>
     <string name="types_devices">Типы устройств</string>
@@ -12,18 +12,21 @@
 
 
     <string name="auth.email">Е-mail</string>
-    <string name="auth.password">Пароль</string>
-    <string name="auth.confirm_password">Подтвеждение пароля</string>
-    <string name="auth.login">Логин</string>
-    <string name="auth.name">Имя</string>
-    <string name="auth.surname">Фамилия</string>
-    <string name="auth.phone">Телефон</string>
-    <string name="auth.requered_fielsds">* - обязательные для заполнения поля</string>
+    <string name="auth.password">Password</string>
+    <string name="auth.confirm_password">Confirm password</string>
+    <string name="auth.login">Login</string>
+    <string name="auth.name">Name</string>
+    <string name="auth.surname">Surname</string>
+    <string name="auth.phone">Phone</string>
+    <string name="auth.no_account">Don\'t have an account? </string>
+    <string name="auth.sign_continue">Sign in to continue</string>
+    <string name="auth.requered_fielsds">* - required fields</string>
 
-    <string name="dialog.wait">Подождите ...</string>
+    <string name="dialog.wait">Wait ...</string>
 
     <!-- Buttons -->
-    <string name="button.sign_in">Войти</string>
+    <string name="button.login">Login</string>
+    <string name="button.sign_up">Sign Up</string>
     <string name="button.registration">Регистрация</string>
     <string name="button.register">Зарегистрироваться</string>
 

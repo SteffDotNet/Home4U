@@ -1,6 +1,7 @@
 package pro.home.my.ui.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,27 +32,34 @@ public class RegistrationActivity extends BaseActivity{
     EditText phoneEditText;
     @BindView(R.id.registerButton)
     Button registerButton;
-    @BindView(R.id.errorEmailTextView)
-    TextView errorEmailTextView;
-    @BindView(R.id.errorLoginTextView)
-    TextView errorLoginTextView;
-    @BindView(R.id.errorPsw1TextView)
-    TextView errorPsw1TextView;
-    @BindView(R.id.errorPsw2TextView)
-    TextView errorPsw2TextView;
-    @BindView(R.id.errorNameTextView)
-    TextView errorNameTextView;
-    @BindView(R.id.errorSurnameTextView)
-    TextView errorSurnameTextView;
-    @BindView(R.id.errorPhoneTextView)
-    TextView errorPhoneTextView;
+    @BindView(R.id.emailTextInput)
+    TextInputLayout emailTextInputLayout;
+    @BindView(R.id.loginTextInput)
+    TextInputLayout loginTextInputLayout;
+    @BindView(R.id.passwordTextInput)
+    TextInputLayout passwordTextInputLayout;
+    @BindView(R.id.confirmTextInput)
+    TextInputLayout confirmTextInputLayout;
+    @BindView(R.id.nameTextInput)
+    TextInputLayout nameTextInputLayout;
+    @BindView(R.id.surnameTextInput)
+    TextInputLayout surnameTextInputLayout;
+    @BindView(R.id.phoneTextInput)
+    TextInputLayout phoneTextInputLayout;
 
-    private Observable observable;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         ButterKnife.bind(this);
+
+        RxTextView.textChanges(emailEditText)
+                .map(CharSequence::toString)
+                .map(FormValidator::isEmailValid)
+                .subscribe(res -> {
+                    emailTextInputLayout.setError(res ? "" : getString(R.string.error_incorrect_email));
+                    emailTextInputLayout.setErrorEnabled(!res);
+                });
 
         Observable<Boolean> o1 = RxTextView.textChanges(emailEditText)
                 .map(CharSequence::toString)
@@ -81,24 +89,35 @@ public class RegistrationActivity extends BaseActivity{
                 .map(CharSequence::toString)
                 .map(FormValidator::isPhoneValid);
 
-        registerButton.setOnClickListener(view -> {
-            add(Observable.combineLatest(o1, o2, o3, o4, o5, o6, o7, this::isRegistrationValid)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(AndroidSchedulers.mainThread())
-                    .subscribe(res -> {
+        add(Observable.combineLatest(o1, o2, o3, o4, o5, o6, o7, this::isRegistrationValid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(res -> {
 
-                    }));
+                }));
+
+        registerButton.setOnClickListener(view -> {
         });
     }
 
     private boolean isRegistrationValid(boolean v1, boolean v2, boolean v3, boolean v4, boolean v5, boolean v6, boolean v7){
-        errorEmailTextView.setVisibility(v1 ? View.GONE : View.VISIBLE);
-        errorLoginTextView.setVisibility(v2 ? View.GONE : View.VISIBLE);
-        errorPsw1TextView.setVisibility(v3 ? View.GONE : View.VISIBLE);
-        errorPsw2TextView.setVisibility(v4 ? View.GONE : View.VISIBLE);
-        errorNameTextView.setVisibility(v5 ? View.GONE : View.VISIBLE);
-        errorSurnameTextView.setVisibility(v6 ? View.GONE : View.VISIBLE);
-        errorPhoneTextView.setVisibility(v7 ? View.GONE : View.VISIBLE);
+
+        loginTextInputLayout.setError(v2 ? "" : getString(R.string.error_incorrect_login));
+        loginTextInputLayout.setErrorEnabled(!v2);
+        passwordTextInputLayout.setError(v3 ? "" : getString(R.string.error_length_password));
+        passwordTextInputLayout.setErrorEnabled(!v3);
+        confirmTextInputLayout.setError(v4 ? "" : getString(R.string.error_length_password));
+        confirmTextInputLayout.setErrorEnabled(!v4);
+        nameTextInputLayout.setError(v5 ? "" : getString(R.string.error_incorrect_name));
+        nameTextInputLayout.setErrorEnabled(!v5);
+        surnameTextInputLayout.setError(v6 ? "" : getString(R.string.error_incorrect_surname));
+        surnameTextInputLayout.setErrorEnabled(!v6);
+        phoneTextInputLayout.setError(v7 ? "" : getString(R.string.error_incorrect_phone));
+        phoneTextInputLayout.setErrorEnabled(!v7);
+
+        boolean isEquals = FormValidator.isPasswordEquals(passwordEditText.getText().toString().trim(), passwordConfirmEditText.getText().toString().trim());
+
+
         return v1 && v2 && v3 && v4 && v5 && v6 && v7;
     }
 
