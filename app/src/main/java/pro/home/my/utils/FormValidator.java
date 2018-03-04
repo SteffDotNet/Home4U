@@ -1,15 +1,14 @@
 package pro.home.my.utils;
 
-import android.content.res.ColorStateList;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.widget.EditText;
+
 import java.util.regex.Pattern;
 
 
 public class FormValidator {
-    private static final int MIN_LENGT_PSW = 5;
-    private static final int MAX_LENGT_PSW = 20;
+    private static final int MIN_LENGTH_PSW = 6;
+    private static final int MAX_LENGTH_PSW = 20;
 
     private static final String REGEX_LOGIN = "^[a-zA-Z0-9_]{3,16}$";
     private static final String REGEX_NAME = "^[a-zA-Zа-яА-Я]{2,16}$";
@@ -19,7 +18,7 @@ public class FormValidator {
     }
 
     public static boolean isPasswordValid(String password){
-        return !TextUtils.isEmpty(password) && (password.length() > MIN_LENGT_PSW && password.length() < MAX_LENGT_PSW);
+        return !TextUtils.isEmpty(password) && (password.length() >= MIN_LENGTH_PSW && password.length() <= MAX_LENGTH_PSW);
     }
 
     public static boolean isPasswordEquals(String psw1, String psw2){

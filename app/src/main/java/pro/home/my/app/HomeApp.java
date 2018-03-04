@@ -18,6 +18,7 @@ public class HomeApp extends Application {
 
     @Override public void onCreate() {
         super.onCreate();
+        initDagger();
     }
 
     private void initDagger(){

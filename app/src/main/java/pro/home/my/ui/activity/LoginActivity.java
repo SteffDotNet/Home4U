@@ -47,9 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         Observable.combineLatest(o1, o2, this::checkInput)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(res -> {
-                    isValid = res;
-                });
+                .subscribe(res -> isValid = res);
 
         signButton.setOnClickListener(v -> {
             if(!isValid){
@@ -58,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        sign_upTextView.setOnClickListener(v -> {startActivity(new Intent(this, RegistrationActivity.class));});
+        sign_upTextView.setOnClickListener(v -> startActivity(new Intent(this, RegistrationActivity.class)));
     }
 
     private boolean checkInput(boolean isEmail, boolean isPassword){

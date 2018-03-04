@@ -2,9 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_height="match_parent">
 
   <ScrollView
       android:layout_width="match_parent"
@@ -17,167 +15,151 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/emailTextInput"
-            android:theme="@style/TextlayoutInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_small">
-
-          <EditText
-              android:id="@+id/emailEditText"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textSize="@dimen/textSize_medium"
-              android:inputType="textEmailAddress"
-              android:hint="@string/auth.email"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-      </RelativeLayout>
-
-      <RelativeLayout
+      <EditText
+          android:id="@+id/emailEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:gravity="right">
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="textEmailAddress"
+          android:maxLines="1"
+          android:hint="@string/auth.email" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/loginTextInput"
-            android:theme="@style/TextlayoutInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_small">
-
-          <EditText
-              android:id="@+id/loginEditText"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textSize="@dimen/textSize_medium"
-              android:inputType="textEmailAddress"
-              android:hint="@string/auth.login"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-      </RelativeLayout>
-
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/passwordTextInput"
-            android:theme="@style/TextlayoutInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_small">
-
-          <EditText
-              android:id="@+id/passwordEditText"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textSize="@dimen/textSize_medium"
-              android:inputType="textPassword"
-              android:hint="@string/auth.password"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-      </RelativeLayout>
-
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/confirmTextInput"
-            android:theme="@style/TextlayoutInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/indent_small">
-
-          <EditText
-              android:id="@+id/passwordConfirmEditText"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textSize="@dimen/textSize_medium"
-              android:inputType="textPassword"
-              android:hint="@string/auth.confirm_password"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-      </RelativeLayout>
-
-      <android.support.design.widget.TextInputLayout
-          android:id="@+id/nameTextInput"
-          android:theme="@style/TextlayoutInput"
+      <TextView
+          android:id="@+id/emailErrorView"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/indent_small">
+          style="@style/TextError"
+          android:text="@string/error.invalid_email"
+          android:visibility="invisible"/>
 
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize_medium"
-            android:inputType="textPersonName"
-            android:hint="@string/auth.name"/>
-
-      </android.support.design.widget.TextInputLayout>
-
-      <android.support.design.widget.TextInputLayout
-          android:id="@+id/surnameTextInput"
-          android:theme="@style/TextlayoutInput"
+      <EditText
+          android:id="@+id/loginEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/indent_small">
+          android:layout_marginTop="@dimen/indent_normal"
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="textEmailAddress"
+          android:maxLines="1"
+          android:hint="@string/auth.login"/>
 
-        <EditText
-            android:id="@+id/surnameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize_medium"
-            android:inputType="textPersonName"
-            android:hint="@string/auth.surname"/>
-
-      </android.support.design.widget.TextInputLayout>
-
-      <android.support.design.widget.TextInputLayout
-          android:id="@+id/phoneTextInput"
-          android:theme="@style/TextlayoutInput"
+      <TextView
+          android:id="@+id/loginErrorView"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/indent_small">
+          style="@style/TextError"
+          android:text="@string/error.invalid_login"
+          android:visibility="invisible"/>
 
-        <EditText
-            android:id="@+id/phoneEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize_medium"
-            android:inputType="phone"
-            android:hint="@string/auth.phone"/>
+      <EditText
+          android:id="@+id/passwordEditText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/indent_normal"
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="textPassword"
+          android:maxLines="1"
+          android:hint="@string/auth.password"/>
 
-      </android.support.design.widget.TextInputLayout>
+      <TextView
+          android:id="@+id/passwordErrorView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          style="@style/TextError"
+          android:text="@string/error.invalid_password"
+          android:visibility="invisible"/>
+
+      <EditText
+          android:id="@+id/confirmEditText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/indent_normal"
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="textPassword"
+          android:maxLines="1"
+          android:hint="@string/auth.confirm_password"/>
+
+      <TextView
+          android:id="@+id/confirmErrorView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          style="@style/TextError"
+          android:text="@string/error.invalid_password"
+          android:visibility="invisible"/>
+
+      <EditText
+          android:id="@+id/nameEditText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/indent_normal"
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="textPersonName"
+          android:hint="@string/auth.name"/>
+
+      <EditText
+          android:id="@+id/surnameEditText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/indent_normal"
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="textPersonName"
+          android:hint="@string/auth.surname"/>
+
+      <EditText
+          android:id="@+id/phoneEditText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/indent_normal"
+          android:textSize="@dimen/textSize_medium"
+          android:inputType="phone"
+          android:hint="@string/auth.phone"/>
 
     </LinearLayout>
 
   </ScrollView>
 
-  <Button
-      android:id="@+id/registerButton"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_marginTop="@dimen/indent_large"
-      android:layout_marginBottom="@dimen/indent_normal"
-      android:layout_marginLeft="@dimen/indent_xxlarge"
-      android:layout_marginRight="@dimen/indent_xxlarge"
-      android:padding="@dimen/indent_small"
-      android:background="@drawable/button_login"
-      android:textAllCaps="false"
-      android:textColor="@color/text.white"
-      android:text="@string/button.sign_up"/>
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_above="@id/layoutBottom"
+        android:layout_marginLeft="@dimen/indent_xxlarge"
+        android:layout_marginRight="@dimen/indent_xxlarge"
+        android:background="@drawable/button_login"
+        android:textAllCaps="false"
+        android:textColor="@color/text.white"
+        android:text="@string/button.sign_up"/>
+
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_medium"
+        android:layout_marginBottom="@dimen/indent_large"
+        android:layout_marginLeft="@dimen/indent_xxlarge"
+        android:layout_marginRight="@dimen/indent_xxlarge"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_normal"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@color/text.primaryLight"
+            android:text="@string/auth.yes_account"/>
+
+        <TextView
+            android:id="@+id/sign_inTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_normal"
+            android:layout_marginLeft="@dimen/indent_small"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@color/text.primary"
+            android:textStyle="bold"
+            android:text="@string/button.sign_in"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

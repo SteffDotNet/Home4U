@@ -2,15 +2,19 @@ package pro.home.my.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import pro.home.my.di.model.User;
 import pro.home.my.utils.FormValidator;
 import pro.home.my.R;
 
@@ -22,7 +26,7 @@ public class RegistrationActivity extends BaseActivity{
     EditText loginEditText;
     @BindView(R.id.passwordEditText)
     EditText passwordEditText;
-    @BindView(R.id.passwordConfirmEditText)
+    @BindView(R.id.confirmEditText)
     EditText passwordConfirmEditText;
     @BindView(R.id.nameEditText)
     EditText nameEditText;
@@ -32,34 +36,22 @@ public class RegistrationActivity extends BaseActivity{
     EditText phoneEditText;
     @BindView(R.id.registerButton)
     Button registerButton;
-    @BindView(R.id.emailTextInput)
-    TextInputLayout emailTextInputLayout;
-    @BindView(R.id.loginTextInput)
-    TextInputLayout loginTextInputLayout;
-    @BindView(R.id.passwordTextInput)
-    TextInputLayout passwordTextInputLayout;
-    @BindView(R.id.confirmTextInput)
-    TextInputLayout confirmTextInputLayout;
-    @BindView(R.id.nameTextInput)
-    TextInputLayout nameTextInputLayout;
-    @BindView(R.id.surnameTextInput)
-    TextInputLayout surnameTextInputLayout;
-    @BindView(R.id.phoneTextInput)
-    TextInputLayout phoneTextInputLayout;
+    @BindView(R.id.emailErrorView)
+    TextView emailErrorView;
+    @BindView(R.id.loginErrorView)
+    TextView loginErrorView;
+    @BindView(R.id.passwordErrorView)
+    TextView passwordErrorView;
+    @BindView(R.id.confirmErrorView)
+    TextView confirmErrorView;
 
+    private boolean isValid = false;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         ButterKnife.bind(this);
 
-        RxTextView.textChanges(emailEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isEmailValid)
-                .subscribe(res -> {
-                    emailTextInputLayout.setError(res ? "" : getString(R.string.error_incorrect_email));
-                    emailTextInputLayout.setErrorEnabled(!res);
-                });
 
         Observable<Boolean> o1 = RxTextView.textChanges(emailEditText)
                 .map(CharSequence::toString)
@@ -77,48 +69,52 @@ public class RegistrationActivity extends BaseActivity{
                 .map(CharSequence::toString)
                 .map(FormValidator::isPasswordValid);
 
-        Observable<Boolean> o5 = RxTextView.textChanges(nameEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isNameValid);
-
-        Observable<Boolean> o6 = RxTextView.textChanges(surnameEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isNameValid);
-
-        Observable<Boolean> o7 = RxTextView.textChanges(phoneEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isPhoneValid);
-
-        add(Observable.combineLatest(o1, o2, o3, o4, o5, o6, o7, this::isRegistrationValid)
+        add(Observable.combineLatest(o1, o2, o3, o4, this::isRegistrationValid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(res -> {
+                   isValid = res;
+                })
+        );
 
-                }));
 
         registerButton.setOnClickListener(view -> {
+            if(isValid){
+                Log.i("TAG", "Register");
+            }
         });
     }
 
-    private boolean isRegistrationValid(boolean v1, boolean v2, boolean v3, boolean v4, boolean v5, boolean v6, boolean v7){
+    private boolean isRegistrationValid(boolean v1, boolean v2, boolean v3, boolean v4){
+        boolean isPswMatch = FormValidator.isPasswordEquals(passwordEditText.getText().toString().trim(), passwordConfirmEditText.getText().toString().trim());
 
-        loginTextInputLayout.setError(v2 ? "" : getString(R.string.error_incorrect_login));
-        loginTextInputLayout.setErrorEnabled(!v2);
-        passwordTextInputLayout.setError(v3 ? "" : getString(R.string.error_length_password));
-        passwordTextInputLayout.setErrorEnabled(!v3);
-        confirmTextInputLayout.setError(v4 ? "" : getString(R.string.error_length_password));
-        confirmTextInputLayout.setErrorEnabled(!v4);
-        nameTextInputLayout.setError(v5 ? "" : getString(R.string.error_incorrect_name));
-        nameTextInputLayout.setErrorEnabled(!v5);
-        surnameTextInputLayout.setError(v6 ? "" : getString(R.string.error_incorrect_surname));
-        surnameTextInputLayout.setErrorEnabled(!v6);
-        phoneTextInputLayout.setError(v7 ? "" : getString(R.string.error_incorrect_phone));
-        phoneTextInputLayout.setErrorEnabled(!v7);
+        if(!isEmptyField(emailEditText)){
+            emailErrorView.setVisibility(v1 ? View.INVISIBLE : View.VISIBLE);
+        }
+        if(!isEmptyField(loginEditText)){
+            loginErrorView.setVisibility(v2 ? View.INVISIBLE : View.VISIBLE);
+        }
+        if(!isEmptyField(passwordEditText)){
+            passwordErrorView.setText(R.string.error_invalid_password);
+            passwordErrorView.setVisibility(v3 ? View.INVISIBLE : View.VISIBLE);
+        }
+        if(!isEmptyField(passwordConfirmEditText)){
+            confirmErrorView.setText(R.string.error_invalid_password);
+            confirmErrorView.setVisibility(v4 ? View.INVISIBLE : View.VISIBLE);
+        }
 
-        boolean isEquals = FormValidator.isPasswordEquals(passwordEditText.getText().toString().trim(), passwordConfirmEditText.getText().toString().trim());
+        if(!isEmptyField(passwordConfirmEditText) && !isEmptyField(passwordConfirmEditText) && v3 && v4){
+            passwordErrorView.setText(R.string.error_no_match_passwords);
+            confirmErrorView.setText(R.string.error_no_match_passwords);
+            passwordErrorView.setVisibility(isPswMatch ? View.INVISIBLE : View.VISIBLE);
+            confirmErrorView.setVisibility(isPswMatch ? View.INVISIBLE : View.VISIBLE);
+        }
 
+        return v1 && v2 && v3 && v4 && isPswMatch;
+    }
 
-        return v1 && v2 && v3 && v4 && v5 && v6 && v7;
+    private boolean isEmptyField(EditText editText){
+        return TextUtils.isEmpty(editText.getText().toString());
     }
 
 
