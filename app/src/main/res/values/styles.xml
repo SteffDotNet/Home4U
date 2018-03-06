@@ -13,6 +13,19 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <style name="DayTheme" parent="AppTheme.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:colorBackground">@color/background_day</item>
+    </style>
+
+    <style name="NightTheme" parent="AppTheme.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@color/background_night</item>
+        <item name="android:colorBackground">@color/background_night</item>
+    </style>
+
     <style name="LoginContainer" parent="AppTheme">
         <item name="android:layout_marginTop">50dp</item>
         <item name="android:layout_marginBottom">20dp</item>
@@ -25,6 +38,13 @@
         <item name="android:layout_marginBottom">@dimen/indent_medium</item>
         <item name="android:layout_marginLeft">@dimen/indent_xxlarge</item>
         <item name="android:layout_marginRight">@dimen/indent_xxlarge</item>
+    </style>
+
+    <style name="SettingsBlock" parent="AppTheme">
+        <item name="android:layout_marginTop">@dimen/indent_small</item>
+        <item name="android:layout_marginBottom">@dimen/indent_normal</item>
+        <item name="android:layout_marginLeft">@dimen/indent_medium</item>
+        <item name="android:layout_marginRight">@dimen/indent_medium</item>
     </style>
 
     <style name="DialogContainer">

@@ -5,10 +5,6 @@ import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
 
-/**
- * Created by egor.stepanov on 22.02.2018.
- */
-
 @Module
 public class ContextModule {
     private Context context;

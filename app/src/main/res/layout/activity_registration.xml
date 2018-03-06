@@ -124,7 +124,7 @@
         android:layout_above="@id/layoutBottom"
         android:layout_marginLeft="@dimen/indent_xxlarge"
         android:layout_marginRight="@dimen/indent_xxlarge"
-        android:background="@drawable/button_login"
+        android:background="@drawable/button_auth"
         android:textAllCaps="false"
         android:textColor="@color/text.white"
         android:text="@string/button.sign_up"/>

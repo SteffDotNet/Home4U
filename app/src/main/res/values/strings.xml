@@ -22,6 +22,9 @@
     <string name="auth.yes_account">Alredy have an account? </string>
     <string name="auth.sign_continue">Sign in to continue</string>
 
+    <string name="settings.day">Day</string>
+    <string name="settings.night">Night</string>
+
     <string name="dialog.wait">Wait ...</string>
 
     <!-- Buttons -->
@@ -35,5 +38,6 @@
     <string name="error.invalid_login">Invalid login</string>
     <string name="error.invalid_password">Min password length must be 6 characters</string>
     <string name="error.no_match_passwords">Passwords do not match</string>
+    <string name="no_internet_connection">No internet connection</string>
 
 </resources>

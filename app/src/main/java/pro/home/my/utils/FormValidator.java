@@ -14,11 +14,11 @@ public class FormValidator {
     private static final String REGEX_NAME = "^[a-zA-Zа-яА-Я]{2,16}$";
 
     public static boolean isEmailValid(String email){
-        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     public static boolean isPasswordValid(String password){
-        return !TextUtils.isEmpty(password) && (password.length() >= MIN_LENGTH_PSW && password.length() <= MAX_LENGTH_PSW);
+        return (password.length() >= MIN_LENGTH_PSW && password.length() <= MAX_LENGTH_PSW);
     }
 
     public static boolean isPasswordEquals(String psw1, String psw2){
@@ -26,15 +26,15 @@ public class FormValidator {
     }
 
     public static boolean isLoginValid(String login){
-        return !TextUtils.isEmpty(login) && Pattern.compile(REGEX_LOGIN).matcher(login).matches();
+        return Pattern.compile(REGEX_LOGIN).matcher(login).matches();
     }
 
     public static boolean isNameValid(String name){
-        return TextUtils.isEmpty(name) || Pattern.compile(REGEX_NAME).matcher(name).matches();
+        return Pattern.compile(REGEX_NAME).matcher(name).matches();
     }
 
     public static boolean isPhoneValid(String phone){
-        return TextUtils.isEmpty(phone) || Patterns.PHONE.matcher(phone).matches();
+        return Patterns.PHONE.matcher(phone).matches();
     }
 
     public static boolean isConfirmPassword(String psw1, String psw2){

@@ -1,4 +1,4 @@
-package pro.home.my.mvp.model;
+package pro.home.my.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

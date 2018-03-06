@@ -6,20 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.arellomobile.mvp.presenter.InjectPresenter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.jakewharton.rxbinding2.widget.RxTextView;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import pro.home.my.utils.FormValidator;
 import pro.home.my.R;
+import pro.home.my.mvp.presenter.LoginPresenter;
+import pro.home.my.mvp.view.LoginView;
+import pro.home.my.ui.dialog.ProgressDialog;
+import pro.home.my.utils.NetworkService;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity implements LoginView {
 
     @BindView(R.id.loginEditText)
-    EditText emailEditText;
+    EditText loginEditText;
     @BindView(R.id.passwordEditText)
     EditText passwordEditText;
     @BindView(R.id.sign_upTextView)
@@ -27,7 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.signButton)
     Button signButton;
 
-    private boolean isValid = false;
+    @InjectPresenter LoginPresenter loginPresenter;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,33 +37,35 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        Observable<Boolean> o1 = RxTextView.textChanges(emailEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isEmailValid);
-
-        Observable<Boolean> o2 = RxTextView.textChanges(passwordEditText)
-                .map(CharSequence::toString)
-                .map(FormValidator::isPasswordValid);
-
-
-        Observable.combineLatest(o1, o2, this::checkInput)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(res -> isValid = res);
+        dialog = new ProgressDialog(this);
 
         signButton.setOnClickListener(v -> {
-            if(!isValid){
-                Toast.makeText(this, R.string.error_invalid_sign, Toast.LENGTH_SHORT).show();
+            if(!NetworkService.isConnection()){
+                showMessage(R.string.no_internet_connection);
                 return;
             }
+            loginPresenter.login(loginEditText.getText().toString(), passwordEditText.getText().toString().trim());
         });
 
         sign_upTextView.setOnClickListener(v -> startActivity(new Intent(this, RegistrationActivity.class)));
     }
 
-    private boolean checkInput(boolean isEmail, boolean isPassword){
-        return isEmail && isPassword;
+    public void updateUI(){
+        int mode = 1;
     }
 
+    @Override
+    public void showProgressDialog() {
+        if(dialog != null){
+            dialog.show();
+        }
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        if(dialog != null){
+            dialog.hide();
+        }
+    }
 }
 

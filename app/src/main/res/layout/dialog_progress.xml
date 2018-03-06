@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/indent_medium">
 
   <LinearLayout
       style="@style/DialogContainer"
@@ -11,18 +12,23 @@
       android:orientation="horizontal"
       android:layout_centerInParent="true">
 
+    <ProgressBar
+        android:layout_width="@dimen/indent_xxlarge"
+        android:layout_height="@dimen/indent_xxlarge"
+        android:layout_marginRight="@dimen/indent_normal"
+        android:layout_gravity="center_vertical"
+        android:backgroundTint="@color/colorPrimary"/>
+
     <TextView
         android:id="@+id/messageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+
         style="@style/DialogText"
         android:text="@string/dialog.wait"/>
 
-    <ProgressBar
-        android:layout_width="@dimen/indent_medium"
-        android:layout_height="@dimen/indent_medium"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/colorPrimary"/>
+
 
   </LinearLayout>
 

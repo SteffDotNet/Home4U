@@ -1,11 +1,10 @@
 package pro.home.my.mvp.presenter;
 
+import com.arellomobile.mvp.InjectViewState;
+
 import pro.home.my.mvp.view.MainView;
 
-/**
- * Created by egor.stepanov on 22.02.2018.
- */
-
+@InjectViewState
 public class MainPresenter extends BasePresenter<MainView> {
 
 }

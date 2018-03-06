@@ -4,7 +4,12 @@
     <color name="colorPrimaryDark">#bb4d00</color>
     <color name="colorAccent">#f57c00</color>
 
-    <color name="background">#f1eeee</color>
+    <color name="background_day">#f1eeee</color>
+    <color name="background_night">#050116</color>
+    <color name="menu.botttom">#e1dddd</color>
+
+    <color name="button.day">#fafafa</color>
+    <color name="button.night">#c7c7c7</color>
 
     <color name="colorText">#00867d</color>
     <color name="text.white">#ffffff</color>

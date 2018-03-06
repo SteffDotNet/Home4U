@@ -9,6 +9,4 @@ import com.arellomobile.mvp.MvpView;
 public interface NetworkView extends MvpView {
 
     void showMessage(int messageResId);
-
-    void showDialog(int messageResId);
 }

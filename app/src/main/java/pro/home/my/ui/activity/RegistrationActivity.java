@@ -117,6 +117,10 @@ public class RegistrationActivity extends BaseActivity{
         return TextUtils.isEmpty(editText.getText().toString());
     }
 
+   /* private boolean isEmptyFields(){
+        emailErrorView.setVisibility(v1 ? View.INVISIBLE : View.VISIBLE);
+    }*/
+
 
     @Override
     protected void onDestroy() {

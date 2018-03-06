@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_day">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            style="@style/SettingsBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/modeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/text.primaryLight"
+                android:layout_marginLeft="@dimen/indent_normal"
+                android:text="Choose mode"/>
+
+            <LinearLayout
+                android:id="@+id/modePanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/modeTextView"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardDay"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/indent_normal"
+                    app:cardCornerRadius="@dimen/indent_normal"
+                    app:contentPadding="@dimen/indent_normal"
+                    app:cardBackgroundColor="@color/button.day">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imgSun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_sun"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/imgSun"
+                            android:layout_marginLeft="@dimen/indent_normal"
+                            android:layout_centerVertical="true"
+                            android:textSize="@dimen/textSize_medium"
+                            android:text="@string/settings.day"/>
+
+                    </RelativeLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardNight"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/indent_normal"
+                    app:cardCornerRadius="@dimen/indent_normal"
+                    app:contentPadding="@dimen/indent_normal"
+                    app:cardBackgroundColor="@color/button.night">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imgLoon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_loon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/imgLoon"
+                            android:layout_marginLeft="@dimen/indent_normal"
+                            android:textColor="@color/text.white"
+                            android:layout_centerVertical="true"
+                            android:textSize="@dimen/textSize_medium"
+                            android:text="@string/settings.night"/>
+
+                    </RelativeLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

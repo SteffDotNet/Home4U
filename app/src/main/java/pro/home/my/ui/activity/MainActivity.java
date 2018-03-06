@@ -6,9 +6,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import pro.home.my.R;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
-public class MainActivity extends AppCompatActivity {
+import pro.home.my.R;
+import pro.home.my.mvp.presenter.MainPresenter;
+import pro.home.my.mvp.view.MainView;
+
+public class MainActivity extends BaseActivity implements MainView {
+
+    @InjectPresenter MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, LoginActivity.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void showMessage(int messageResId) {
+
     }
 }

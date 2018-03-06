@@ -33,4 +33,8 @@ public class ProgressDialog {
     public void setMessage(int messageResId){
         messageTextView.setText(messageResId);
     }
+
+    public boolean isShow(){
+        return alertDialog.isShowing();
+    }
 }
