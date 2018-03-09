@@ -120,11 +120,11 @@
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:layout_above="@id/layoutBottom"
         android:layout_marginLeft="@dimen/indent_xxlarge"
         android:layout_marginRight="@dimen/indent_xxlarge"
-        android:background="@drawable/button_auth"
+        android:background="@drawable/button_auth_inactive"
         android:textAllCaps="false"
         android:textColor="@color/text.white"
         android:text="@string/button.sign_up"/>

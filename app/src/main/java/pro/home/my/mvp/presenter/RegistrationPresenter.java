@@ -11,23 +11,25 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import pro.home.my.app.HomeApp;
+import pro.home.my.di.model.User;
 import pro.home.my.mvp.model.AuthService;
 import pro.home.my.mvp.view.LoginView;
+import pro.home.my.mvp.view.RegistrationView;
 
 
 @InjectViewState
-public class LoginPresenter extends BasePresenter<LoginView> {
+public class RegistrationPresenter extends BasePresenter<RegistrationView> {
 
     @Inject
     AuthService authService;
 
-    public LoginPresenter() {
+    public RegistrationPresenter() {
         HomeApp.getAppComponent().inject(this);
     }
 
-    public void login(String login, String password) {
+    public void register(String email, String login, String password, String surname, String name, String phoneNumber) {
         getViewState().showProgressDialog();
-        authService.login(login, password)
+        authService.register(email, login, password, surname, name, phoneNumber)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .debounce(500, TimeUnit.MILLISECONDS)
@@ -35,6 +37,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                     getViewState().hideProgressDialog();
                     if(res.getStatus().equals("ok")){
                         //redirect to main
+                        Toast.makeText(HomeApp.getAppComponent().getContext(), "Ok", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(HomeApp.getAppComponent().getContext(), res.getError(), Toast.LENGTH_SHORT).show();
                     }

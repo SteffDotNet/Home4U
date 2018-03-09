@@ -10,6 +10,7 @@ public class User implements Serializable{
 
     private String email;
     private String login;
+    private String password;
     private String token;
     private String name;
     private String surname;
@@ -29,6 +30,14 @@ public class User implements Serializable{
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getToken() {

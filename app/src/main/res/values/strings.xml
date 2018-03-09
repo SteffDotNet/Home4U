@@ -21,6 +21,7 @@
     <string name="auth.no_account">Don\'t have an account? </string>
     <string name="auth.yes_account">Alredy have an account? </string>
     <string name="auth.sign_continue">Sign in to continue</string>
+    <string name="auth.must_complete">You must complete this field</string>
 
     <string name="settings.day">Day</string>
     <string name="settings.night">Night</string>
