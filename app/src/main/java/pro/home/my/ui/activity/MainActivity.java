@@ -33,6 +33,10 @@ public class MainActivity extends BaseActivity implements MainView {
         switch (item.getItemId()){
             case R.id.account:
                 startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.add_data:
+                startActivity(new Intent(this, AddActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

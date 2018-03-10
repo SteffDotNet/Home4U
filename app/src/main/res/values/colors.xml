@@ -4,22 +4,22 @@
     <color name="colorPrimaryDark">#bb4d00</color>
     <color name="colorAccent">#f57c00</color>
 
-    <color name="background_day">#f1eeee</color>
+    <color name="background">#eeeeee</color>
     <color name="background_night">#050116</color>
-    <color name="menu.botttom">#e1dddd</color>
+    <color name="menu.bottom">#eeeeee</color>
+
+    <color name="device.background">#f9f7f7</color>
+    <color name="card.background.normal">#fafafa</color>
+    <color name="card.background.pressed">#16da87</color>
 
     <color name="button.day">#fafafa</color>
     <color name="button.night">#c7c7c7</color>
+    <color name="button.dialog">#0594bc</color>
 
-    <color name="colorText">#00867d</color>
     <color name="text.white">#ffffff</color>
     <color name="text.primary">#616161</color>
     <color name="text.primaryLight">#acabab</color>
     <color name="text.error">#df5629</color>
-    <color name="text_riquired">#0f94a3</color>
     <color name="text.dialog">#000000</color>
-
-    <color name="hint.error">#f57c00</color>
-    <color name="hint.normal">#509f1a</color>
 
 </resources>

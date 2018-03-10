@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/DialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/indent_normal"
+        style="@style/DialogText"
+        android:text="@string/dialog.event"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/eventRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/indent_large"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/cancelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/indent_large"
+            android:textSize="@dimen/textSize_medium"
+            android:textColor="@color/button.dialog"
+            android:text="@string/dialog.Cancel"/>
+
+        <TextView
+            android:id="@+id/okTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/indent_large"
+            android:textSize="@dimen/textSize_medium"
+            android:textColor="@color/button.dialog"
+            android:textStyle="bold"
+            android:text="@string/dialog.ok"/>
+    </LinearLayout>
+</LinearLayout>

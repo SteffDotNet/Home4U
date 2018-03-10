@@ -122,6 +122,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_above="@id/layoutBottom"
+        android:layout_marginTop="@dimen/indent_medium"
         android:layout_marginLeft="@dimen/indent_xxlarge"
         android:layout_marginRight="@dimen/indent_xxlarge"
         android:background="@drawable/button_auth_inactive"

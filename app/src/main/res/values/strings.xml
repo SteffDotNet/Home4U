@@ -23,10 +23,20 @@
     <string name="auth.sign_continue">Sign in to continue</string>
     <string name="auth.must_complete">You must complete this field</string>
 
+    <string name="add.device">Device</string>
+    <string name="add.date">Date</string>
+    <string name="add.time">Time</string>
+    <string name="add.add_event">Add event</string>
+    <string name="add.add_data">Add data</string>
+
     <string name="settings.day">Day</string>
     <string name="settings.night">Night</string>
 
     <string name="dialog.wait">Wait ...</string>
+    <string name="dialog.event">Events</string>
+    <string name="dialog.data">Data</string>
+    <string name="dialog.ok">Ok</string>
+    <string name="dialog.Cancel">Cancel</string>
 
     <!-- Buttons -->
     <string name="button.login">Login</string>
