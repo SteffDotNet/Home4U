@@ -10,10 +10,6 @@ import android.view.View;
 import pro.home.my.R;
 import pro.home.my.ui.recycler.adapter.DeviceEventAdapter;
 
-/**
- * Created by Egor on 09.03.2018.
- */
-
 public class DeviceEventDialog {
 
     public static void show(Context context){

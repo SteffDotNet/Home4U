@@ -1,9 +1,5 @@
 package pro.home.my.di.model;
 
-/**
- * Created by Egor on 09.03.2018.
- */
-
 public class DeviceEvent {
     private String name;
 

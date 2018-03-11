@@ -2,7 +2,6 @@ package pro.home.my.ui.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,12 +14,12 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import pro.home.my.di.model.User;
 import pro.home.my.mvp.presenter.RegistrationPresenter;
 import pro.home.my.mvp.view.RegistrationView;
 import pro.home.my.ui.dialog.ProgressDialog;
 import pro.home.my.utils.FormValidator;
 import pro.home.my.R;
+import pro.home.my.utils.NetworkService;
 
 public class RegistrationActivity extends BaseActivity implements RegistrationView{
 
@@ -72,7 +71,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
                 .map(CharSequence::toString)
                 .map(TextUtils::isEmpty);
 
-        add(Observable.combineLatest(o1, o2, o3, o4, this::isEmptyFields)
+        addDisposable(Observable.combineLatest(o1, o2, o3, o4, this::isEmptyFields)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(res -> {
@@ -81,10 +80,12 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
                 })
         );
 
-
         signUpButton.setOnClickListener(view -> {
+            if(!NetworkService.isConnection()){
+                showMessage(R.string.no_internet_connection);
+                return;
+            }
             if(isRegistrationValid()){
-                Log.d("TAG", "signUp ok");
                 String email = emailEditText.getText().toString().trim();
                 String login = loginEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString();

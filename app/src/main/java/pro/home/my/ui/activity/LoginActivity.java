@@ -18,7 +18,6 @@ import pro.home.my.ui.dialog.ProgressDialog;
 import pro.home.my.utils.NetworkService;
 
 public class LoginActivity extends BaseActivity implements LoginView {
-
     @BindView(R.id.loginEditText)
     EditText loginEditText;
     @BindView(R.id.passwordEditText)
@@ -48,10 +47,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
         });
 
         sign_upTextView.setOnClickListener(v -> startActivity(new Intent(this, RegistrationActivity.class)));
-    }
-
-    public void updateUI(){
-        int mode = 1;
     }
 
     @Override

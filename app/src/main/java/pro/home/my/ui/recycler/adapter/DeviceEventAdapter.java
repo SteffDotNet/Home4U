@@ -5,10 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import pro.home.my.R;
 import pro.home.my.di.model.DeviceEvent;
 import pro.home.my.ui.recycler.holder.DeviceEventHolder;
@@ -19,7 +17,7 @@ public class DeviceEventAdapter extends RecyclerView.Adapter<DeviceEventHolder> 
 
     public DeviceEventAdapter() {
         events = new ArrayList<>();
-        events.add(new DeviceEvent("Eventttttttttttttttttttt 1"));
+        events.add(new DeviceEvent("Event 1"));
         events.add(new DeviceEvent("Event 2"));
         events.add(new DeviceEvent("Event 3"));
     }

@@ -1,19 +1,13 @@
 package pro.home.my.mvp.presenter;
 
 import android.widget.Toast;
-
 import com.arellomobile.mvp.InjectViewState;
-
 import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import pro.home.my.app.HomeApp;
-import pro.home.my.di.model.User;
 import pro.home.my.mvp.model.AuthService;
-import pro.home.my.mvp.view.LoginView;
 import pro.home.my.mvp.view.RegistrationView;
 
 

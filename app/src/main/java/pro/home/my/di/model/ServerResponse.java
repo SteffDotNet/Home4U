@@ -1,9 +1,5 @@
 package pro.home.my.di.model;
 
-/**
- * Created by Egor on 04.03.2018.
- */
-
 public class ServerResponse {
     private String status;
     private String error;

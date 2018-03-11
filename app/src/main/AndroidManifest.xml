@@ -26,7 +26,7 @@
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.RegistrationActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".ui.activity.SettingsActivity" />
         <activity android:name=".ui.activity.AddActivity"></activity>
     </application>
 

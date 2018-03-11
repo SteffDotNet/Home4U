@@ -1,7 +1,9 @@
-package pro.home.my;
+package pro.home.my.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import pro.home.my.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

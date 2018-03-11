@@ -2,9 +2,7 @@ package pro.home.my.utils;
 
 import android.text.TextUtils;
 import android.util.Patterns;
-
 import java.util.regex.Pattern;
-
 
 public class FormValidator {
     private static final int MIN_LENGTH_PSW = 6;

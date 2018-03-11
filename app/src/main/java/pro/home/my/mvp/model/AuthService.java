@@ -3,7 +3,6 @@ package pro.home.my.mvp.model;
 import io.reactivex.Observable;
 import pro.home.my.api.AuthApi;
 import pro.home.my.di.model.ServerResponse;
-import pro.home.my.di.model.User;
 
 public class AuthService {
 

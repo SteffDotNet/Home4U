@@ -1,8 +1,6 @@
 package pro.home.my.di.module;
 
-
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -18,20 +16,21 @@ public class RetrofitModule {
 
     @Provides
     @Singleton
-    public Retrofit provideRetrofit(){
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(interceptor)
-                .build();
-
+    public Retrofit provideRetrofit() {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(client)
+                .client(provideOkHttp())
                 .baseUrl(Settings.BASE_URL)
                 .build();
     }
 
+    private OkHttpClient provideOkHttp() {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .build();
+    }
 
 }

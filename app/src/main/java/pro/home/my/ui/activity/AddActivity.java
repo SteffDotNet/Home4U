@@ -20,7 +20,6 @@ import pro.home.my.ui.dialog.DeviceDataDialog;
 import pro.home.my.ui.dialog.DeviceEventDialog;
 
 public class AddActivity extends BaseActivity implements AddView {
-
     @BindView(R.id.dateTextView)
     MaskedEditText dateEditText;
     @BindView(R.id.timeTextView)
@@ -36,7 +35,6 @@ public class AddActivity extends BaseActivity implements AddView {
 
     private Calendar calendar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +43,14 @@ public class AddActivity extends BaseActivity implements AddView {
 
         dateImageView.setOnClickListener(v -> showDatePicker());
         timeImageView.setOnClickListener(v -> showTimePicker());
-        addEventCardView.setOnClickListener(v -> showeEventDialog());
+        addEventCardView.setOnClickListener(v -> showEventDialog());
         addDataCardView.setOnClickListener(v -> showDataDialog());
 
         calendar = Calendar.getInstance();
-        initDateTime();
+        updateDateTime();
     }
 
-    private void initDateTime() {
+    private void updateDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         dateEditText.setText(dateFormat.format(calendar.getTime()));
@@ -65,7 +63,7 @@ public class AddActivity extends BaseActivity implements AddView {
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, day);
-            initDateTime();
+            updateDateTime();
         }
     };
 
@@ -74,7 +72,7 @@ public class AddActivity extends BaseActivity implements AddView {
         public void onTimeSet(TimePicker timePicker, int hour, int minute) {
             calendar.set(Calendar.HOUR_OF_DAY, hour);
             calendar.set(Calendar.MINUTE, minute);
-            initDateTime();
+            updateDateTime();
         }
     };
 
@@ -102,7 +100,7 @@ public class AddActivity extends BaseActivity implements AddView {
     }
 
     @Override
-    public void showeEventDialog() {
+    public void showEventDialog() {
         DeviceEventDialog.show(this);
     }
 

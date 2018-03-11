@@ -2,10 +2,6 @@ package pro.home.my.di.model;
 
 import java.io.Serializable;
 
-/**
- * Created by egor.stepanov on 22.02.2018.
- */
-
 public class User implements Serializable{
 
     private String email;

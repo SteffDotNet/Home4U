@@ -7,6 +7,7 @@ import pro.home.my.app.HomeApp;
 import pro.home.my.di.AppComponent;
 
 public class NetworkService {
+
     public static boolean isConnection(){
         ConnectivityManager cm = (ConnectivityManager)HomeApp.getAppComponent().getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
