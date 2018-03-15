@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background">
 
     <RelativeLayout
@@ -12,14 +13,22 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_house"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/textSize_xlarge"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/text.white"
                 android:text="@string/app_name"/>
 
             <TextView
@@ -39,35 +48,39 @@
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
-                android:theme="@style/TextlayoutInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextLayoutInput"
+
                 android:layout_marginTop="@dimen/indent_medium">
 
                 <EditText
                     android:id="@+id/loginEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/auth.login"
                     android:inputType="textPersonName"
-                    android:textSize="@dimen/textSize_medium"/>
+                    android:textSize="@dimen/textSize_medium"
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/text.white"
+                    android:hint="@string/auth.login"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:theme="@style/TextlayoutInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/TextLayoutInput"
                 android:layout_marginTop="@dimen/indent_medium">
 
                 <EditText
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/auth.password"
                     android:inputType="textPassword"
                     android:textSize="@dimen/textSize_medium"
-                    android:textColorHint="@color/text.primaryLight"/>
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/text.white"
+                    android:hint="@string/auth.password"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -76,9 +89,9 @@
         <Button
             android:id="@+id/signButton"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_above="@id/layoutBottom"
-            android:background="@drawable/button_auth_active"
+            android:background="@drawable/button_auth"
             android:textSize="@dimen/textSize_normal"
             android:textAllCaps="false"
             android:textColor="@color/text.white"
@@ -98,6 +111,7 @@
                 android:layout_marginTop="@dimen/indent_normal"
                 android:textSize="@dimen/textSize_normal"
                 android:textColor="@color/text.primaryLight"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/auth.no_account"/>
 
             <TextView
@@ -107,8 +121,8 @@
                 android:layout_marginTop="@dimen/indent_normal"
                 android:layout_marginLeft="@dimen/indent_small"
                 android:textSize="@dimen/textSize_normal"
-                android:textColor="@color/text.primary"
-                android:textStyle="bold"
+                android:textColor="@color/text.white"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/button.sign_up"/>
 
         </LinearLayout>

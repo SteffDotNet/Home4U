@@ -28,10 +28,6 @@ public class AddActivity extends BaseActivity implements AddView {
     ImageView dateImageView;
     @BindView(R.id.timeImageView)
     ImageView timeImageView;
-    @BindView(R.id.addEventCardView)
-    CardView addEventCardView;
-    @BindView(R.id.addDataCardView)
-    CardView addDataCardView;
 
     private Calendar calendar;
 
@@ -43,8 +39,7 @@ public class AddActivity extends BaseActivity implements AddView {
 
         dateImageView.setOnClickListener(v -> showDatePicker());
         timeImageView.setOnClickListener(v -> showTimePicker());
-        addEventCardView.setOnClickListener(v -> showEventDialog());
-        addDataCardView.setOnClickListener(v -> showDataDialog());
+
 
         calendar = Calendar.getInstance();
         updateDateTime();

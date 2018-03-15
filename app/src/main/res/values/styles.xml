@@ -13,19 +13,6 @@
         <item name="windowActionBar">false</item>
     </style>
 
-    <style name="DayTheme" parent="AppTheme.NoActionBar">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:colorBackground">@color/background</item>
-    </style>
-
-    <style name="NightTheme" parent="AppTheme.NoActionBar">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowBackground">@color/background_night</item>
-        <item name="android:colorBackground">@color/background_night</item>
-    </style>
-
     <style name="LoginContainer" parent="AppTheme">
         <item name="android:layout_marginTop">50dp</item>
         <item name="android:layout_marginBottom">20dp</item>
@@ -61,11 +48,25 @@
         <item name="android:paddingLeft">@dimen/indent_normal</item>
     </style>
 
+    <style name="AddButtonContainerView">
+        <item name="android:background">@color/add.data</item>
+        <item name="android:layout_marginTop">@dimen/indent_medium</item>
+        <item name="android:layout_marginBottom">@dimen/indent_normal</item>
+        <item name="android:clickable">true</item>
+    </style>
+
     <style name="TextError">
         <item name="android:textColor">@color/text.error</item>
         <item name="android:textSize">@dimen/textSize_small</item>
         <item name="android:layout_marginRight">@dimen/indent_small</item>
         <item name="android:layout_marginLeft">@dimen/indent_small</item>
+    </style>
+
+    <style name="AuthEditText">
+        <item name="android:textSize">@dimen/textSize_medium</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text.white</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
     </style>
 
     <style name="DialogText">
@@ -74,8 +75,9 @@
         <item name="android:layout_marginRight">@dimen/indent_large</item>
     </style>
 
-    <style name="TextlayoutInput">
-        <item name="colorAccent">@color/text.primaryLight</item>
+    <style name="TextLayoutInput" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text.white</item>
+        <item name="android:textSize">@dimen/textSize_normal</item>
     </style>
 
 </resources>

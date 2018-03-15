@@ -26,8 +26,8 @@
     <string name="add.device">Device</string>
     <string name="add.date">Date</string>
     <string name="add.time">Time</string>
-    <string name="add.add_event">Add event</string>
-    <string name="add.add_data">Add data</string>
+    <string name="add.add_event">Add event for device</string>
+    <string name="add.add_data">Add data for device</string>
 
     <string name="settings.day">Day</string>
     <string name="settings.night">Night</string>

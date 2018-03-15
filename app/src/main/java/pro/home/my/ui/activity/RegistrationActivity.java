@@ -76,7 +76,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(res -> {
                     signUpButton.setEnabled(!res);
-                    signUpButton.setBackgroundResource(res ? R.drawable.button_auth_inactive : R.drawable.button_auth_active);
+                    signUpButton.setBackgroundResource(res ? R.drawable.button_auth_inactive : R.drawable.button_auth_normal);
                 })
         );
 

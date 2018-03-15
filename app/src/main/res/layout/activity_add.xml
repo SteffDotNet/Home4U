@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,22 +8,22 @@
     <LinearLayout
         style="@style/AddContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/add.device"
+            android:textColor="@color/text.white"
             android:textSize="@dimen/textSize_medium"
-            android:textColor="@color/text.primaryLight"
-            android:textStyle="bold"
-            android:text="@string/add.device"/>
+            android:fontFamily="@font/roboto_light" />
 
         <Spinner
             android:id="@+id/spinnerDevice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/indent_large"/>
+            android:layout_marginBottom="@dimen/indent_large" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,25 +33,24 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="@dimen/indent_medium"
+                android:layout_weight="1"
+                android:text="@string/add.date"
+                android:textColor="@color/text.white"
                 android:textSize="@dimen/textSize_medium"
-                android:textColor="@color/text.primaryLight"
-                android:textStyle="bold"
-                android:text="@string/add.date"/>
+                android:fontFamily="@font/roboto_light" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/indent_medium"
+                android:layout_weight="1"
+                android:text="@string/add.time"
+                android:textColor="@color/text.white"
                 android:textSize="@dimen/textSize_medium"
-                android:textColor="@color/text.primaryLight"
-                android:textStyle="bold"
-                android:text="@string/add.time"/>
+                android:fontFamily="@font/roboto_light" />
 
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -70,19 +68,19 @@
                     android:id="@+id/dateTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/dateImageView"
                     android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/dateImageView"
+                    android:inputType="number"
                     android:textSize="@dimen/textSize_normal"
                     app:allowed_chars="1234567890"
-                    app:mask="##.##.####"
-                    android:inputType="number" />
+                    app:mask="##.##.####" />
 
                 <ImageView
                     android:id="@+id/dateImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_date" />
 
             </RelativeLayout>
@@ -99,80 +97,102 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/timeImageView"
+                    android:inputType="number"
                     android:textSize="@dimen/textSize_normal"
                     app:allowed_chars="01234567890"
-                    app:mask="##:##"
-                    android:inputType="number" />
+                    app:mask="##:##" />
 
                 <ImageView
                     android:id="@+id/timeImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_time"/>
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_time" />
 
             </RelativeLayout>
 
-
         </LinearLayout>
-
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/indent_medium"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
+        <RelativeLayout
+            android:id="@+id/dataContainerView"
+            style="@style/AddButtonContainerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/addEventCardView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/indent_medium"
-            android:layout_marginLeft="@dimen/indent_xxlarge"
-            android:background="@drawable/card_button"
-            app:cardCornerRadius="@dimen/indent_small"
-            app:contentPadding="@dimen/indent_large"
-            app:cardElevation="@dimen/indent_small">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="@dimen/indent_large"
-                android:text="@string/add.add_event"/>
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="@dimen/indent_large"
+                android:paddingTop="@dimen/indent_large">
 
-        </android.support.v7.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/indent_medium"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="@string/add.add_data"
+                    android:textColor="@color/text.white"
+                    android:textSize="@dimen/textSize_medium" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/addDataCardView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/indent_medium"
-            android:layout_marginRight="@dimen/indent_xxlarge"
-            android:background="@drawable/card_button"
-            app:cardCornerRadius="@dimen/indent_small"
-            app:contentPadding="@dimen/indent_large">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/indent_normal"
+                    android:src="@drawable/ic_arrow_right" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/eventContainerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AddButtonContainerView" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="@dimen/indent_large"
-                android:text="@string/add.add_data"/>
+                android:background="?attr/selectableItemBackground"
+                android:paddingBottom="@dimen/indent_large"
+                android:paddingTop="@dimen/indent_large">
 
-        </android.support.v7.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/indent_medium"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="@string/add.add_event"
+                    android:textColor="@color/text.white"
+                    android:textSize="@dimen/textSize_medium" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/indent_normal"
+                    android:src="@drawable/ic_arrow_right" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

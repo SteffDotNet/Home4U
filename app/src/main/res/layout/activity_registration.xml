@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
   <ScrollView
       android:layout_width="match_parent"
@@ -19,9 +20,8 @@
           android:id="@+id/emailEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:textSize="@dimen/textSize_medium"
+          android:style="@style/AuthEditText"
           android:inputType="textEmailAddress"
-          android:maxLines="1"
           android:hint="@string/auth.email" />
 
       <TextView
@@ -36,10 +36,9 @@
           android:id="@+id/loginEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
-          android:textSize="@dimen/textSize_medium"
           android:inputType="textEmailAddress"
-          android:maxLines="1"
           android:hint="@string/auth.login"/>
 
       <TextView
@@ -54,10 +53,9 @@
           android:id="@+id/passwordEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
-          android:textSize="@dimen/textSize_medium"
           android:inputType="textPassword"
-          android:maxLines="1"
           android:hint="@string/auth.password"/>
 
       <TextView
@@ -72,10 +70,9 @@
           android:id="@+id/confirmEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
-          android:textSize="@dimen/textSize_medium"
           android:inputType="textPassword"
-          android:maxLines="1"
           android:hint="@string/auth.confirm_password"/>
 
       <TextView
@@ -90,8 +87,8 @@
           android:id="@+id/nameEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
-          android:textSize="@dimen/textSize_medium"
           android:inputType="textPersonName"
           android:hint="@string/auth.name"/>
 
@@ -99,8 +96,8 @@
           android:id="@+id/surnameEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
-          android:textSize="@dimen/textSize_medium"
           android:inputType="textPersonName"
           android:hint="@string/auth.surname"/>
 
@@ -125,7 +122,8 @@
         android:layout_marginTop="@dimen/indent_medium"
         android:layout_marginLeft="@dimen/indent_xxlarge"
         android:layout_marginRight="@dimen/indent_xxlarge"
-        android:background="@drawable/button_auth_inactive"
+        android:background="@drawable/button_auth"
+        android:enabled="false"
         android:textAllCaps="false"
         android:textColor="@color/text.white"
         android:text="@string/button.sign_up"/>
@@ -148,6 +146,7 @@
             android:layout_marginTop="@dimen/indent_normal"
             android:textSize="@dimen/textSize_normal"
             android:textColor="@color/text.primaryLight"
+            android:fontFamily="@font/roboto_regular"
             android:text="@string/auth.yes_account"/>
 
         <TextView
@@ -157,8 +156,8 @@
             android:layout_marginTop="@dimen/indent_normal"
             android:layout_marginLeft="@dimen/indent_small"
             android:textSize="@dimen/textSize_normal"
-            android:textColor="@color/text.primary"
-            android:textStyle="bold"
+            android:textColor="@color/text.white"
+            android:fontFamily="@font/roboto_medium"
             android:text="@string/button.sign_in"/>
 
     </LinearLayout>

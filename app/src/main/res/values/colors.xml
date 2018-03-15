@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f57c00</color>
-    <color name="colorPrimaryDark">#bb4d00</color>
-    <color name="colorAccent">#f57c00</color>
+    <color name="colorPrimary">#457bb7</color>
+    <color name="colorPrimaryDark">#1565c0</color>
+    <color name="colorAccent">#3f51b5</color>
 
-    <color name="background">#eeeeee</color>
+
+    <color name="background">#1565c0</color>
     <color name="background_night">#050116</color>
     <color name="menu.bottom">#eeeeee</color>
 
@@ -12,8 +13,14 @@
     <color name="card.background.normal">#fafafa</color>
     <color name="card.background.pressed">#16da87</color>
 
+    <color name="add.data">#324aa9</color>
+    <color name="add.events">#c68235</color>
+
     <color name="button.day">#fafafa</color>
     <color name="button.night">#c7c7c7</color>
+    <color name="button.shadow">#c3262626</color>
+    <color name="button.auth_normal">#0d47a1</color>
+    <color name="button.auth_inactive">#902859a4</color>
     <color name="button.dialog">#0594bc</color>
 
     <color name="text.white">#ffffff</color>
