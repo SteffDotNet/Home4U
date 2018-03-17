@@ -3,7 +3,6 @@ package pro.home.my.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.view.Gravity;
@@ -19,6 +18,7 @@ import pro.home.my.R;
 import pro.home.my.mvp.presenter.MainPresenter;
 import pro.home.my.mvp.view.MainView;
 import pro.home.my.ui.recycler.adapter.DeviceAdapter;
+import pro.home.my.ui.recycler.adapter.RoomAdapter;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -26,25 +26,30 @@ public class MainActivity extends BaseActivity implements MainView {
     MainPresenter mainPresenter;
 
     @BindView(R.id.deviceRecycleView)
-    RecyclerView recyclerView;
+    RecyclerView deviceRecyclerView;
+    @BindView(R.id.roomRecycleView)
+    RecyclerView roomRecyclerView;
 
-    private DeviceAdapter adapter;
-    private SnapHelper snapHelper;
+    private DeviceAdapter deviceAdapter;
+    private RoomAdapter roomAdapter;
+    private SnapHelper snapHelperDevice;
+    private SnapHelper snapHelperRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        snapHelper = new GravitySnapHelper(Gravity.START, false, position -> {
-
-        });
-        snapHelper.attachToRecyclerView(recyclerView);
-        adapter = new DeviceAdapter();
-        recyclerView.setAdapter(adapter);
-
-
+        deviceRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        roomRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        snapHelperDevice = new GravitySnapHelper(Gravity.START, false);
+        snapHelperRoom = new GravitySnapHelper(Gravity.START, false);
+        snapHelperDevice.attachToRecyclerView(deviceRecyclerView);
+        snapHelperRoom.attachToRecyclerView(roomRecyclerView);
+        deviceAdapter = new DeviceAdapter();
+        roomAdapter = new RoomAdapter();
+        deviceRecyclerView.setAdapter(deviceAdapter);
+        roomRecyclerView.setAdapter(roomAdapter);
     }
 
     @Override

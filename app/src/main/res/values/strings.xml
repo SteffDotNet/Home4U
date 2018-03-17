@@ -24,6 +24,7 @@
     <string name="auth.must_complete">You must complete this field</string>
 
     <string name="main.devices">Devices</string>
+    <string name="main.rooms">Rooms</string>
 
     <string name="add.device">Device</string>
     <string name="add.date">Date</string>

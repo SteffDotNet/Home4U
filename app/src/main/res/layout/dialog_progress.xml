@@ -17,7 +17,7 @@
         android:layout_height="@dimen/indent_xxlarge"
         android:layout_marginRight="@dimen/indent_normal"
         android:layout_gravity="center_vertical"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:backgroundTint="@color/cardview_shadow_end_color"/>
 
     <TextView
         android:id="@+id/messageTextView"
