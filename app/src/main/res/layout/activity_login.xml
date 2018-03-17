@@ -108,7 +108,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/indent_normal"
                 android:textSize="@dimen/textSize_normal"
                 android:textColor="@color/text.primaryLight"
                 android:fontFamily="@font/roboto_regular"
@@ -118,8 +117,7 @@
                 android:id="@+id/sign_upTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/indent_normal"
-                android:layout_marginLeft="@dimen/indent_small"
+                android:padding="@dimen/indent_normal"
                 android:textSize="@dimen/textSize_normal"
                 android:textColor="@color/text.white"
                 android:fontFamily="@font/roboto_medium"

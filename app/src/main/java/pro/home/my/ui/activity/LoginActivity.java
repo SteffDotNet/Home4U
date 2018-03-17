@@ -49,18 +49,5 @@ public class LoginActivity extends BaseActivity implements LoginView {
         sign_upTextView.setOnClickListener(v -> startActivity(new Intent(this, RegistrationActivity.class)));
     }
 
-    @Override
-    public void showProgressDialog() {
-        if(dialog != null){
-            dialog.show();
-        }
-    }
-
-    @Override
-    public void hideProgressDialog() {
-        if(dialog != null){
-            dialog.hide();
-        }
-    }
 }
 

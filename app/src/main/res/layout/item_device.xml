@@ -1,43 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" 
-    android:layout_height="match_parent"
-    android:background="@color/background">
-    
-    <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/device.background">
+    android:layout_width="96dp"
+    android:layout_height="96dp"
+    android:layout_margin="@dimen/indent_small"
+    android:background="@color/card.background.normal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/indent_normal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/indent_normal">
 
-            <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/textSize_normal"
-                android:text="Device"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize_normal"
+            android:text="Device"/>
 
-            <TextView
-                android:id="@+id/stateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/indent_large"
-                android:textSize="@dimen/textSize_normal"
-                android:textColor="@color/text.primaryLight"
-                android:text="On"/>
+        <TextView
+            android:id="@+id/stateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/indent_normal"
+            android:textSize="@dimen/textSize_normal"
+            android:textColor="@color/text.primaryLight"
+            android:text="On"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/textSize_xlarge"
-                android:text="50"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize_large"
+            android:text="50"/>
+    </LinearLayout>
 
 </RelativeLayout>

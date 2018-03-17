@@ -23,6 +23,8 @@
     <string name="auth.sign_continue">Sign in to continue</string>
     <string name="auth.must_complete">You must complete this field</string>
 
+    <string name="main.devices">Devices</string>
+
     <string name="add.device">Device</string>
     <string name="add.date">Date</string>
     <string name="add.time">Time</string>

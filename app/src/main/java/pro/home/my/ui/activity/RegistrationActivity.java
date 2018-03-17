@@ -126,20 +126,6 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
     }
 
     @Override
-    public void showProgressDialog() {
-        if(dialog != null){
-            dialog.show();
-        }
-    }
-
-    @Override
-    public void hideProgressDialog() {
-        if(dialog != null){
-            dialog.hide();
-        }
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         dispose();

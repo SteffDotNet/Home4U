@@ -20,7 +20,7 @@
           android:id="@+id/emailEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:style="@style/AuthEditText"
+          style="@style/AuthEditText"
           android:inputType="textEmailAddress"
           android:hint="@string/auth.email" />
 
@@ -36,7 +36,7 @@
           android:id="@+id/loginEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:style="@style/AuthEditText"
+          style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
           android:inputType="textEmailAddress"
           android:hint="@string/auth.login"/>
@@ -53,7 +53,7 @@
           android:id="@+id/passwordEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:style="@style/AuthEditText"
+          style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
           android:inputType="textPassword"
           android:hint="@string/auth.password"/>
@@ -70,7 +70,7 @@
           android:id="@+id/confirmEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:style="@style/AuthEditText"
+          style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
           android:inputType="textPassword"
           android:hint="@string/auth.confirm_password"/>
@@ -87,7 +87,7 @@
           android:id="@+id/nameEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:style="@style/AuthEditText"
+          style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
           android:inputType="textPersonName"
           android:hint="@string/auth.name"/>
@@ -96,7 +96,7 @@
           android:id="@+id/surnameEditText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:style="@style/AuthEditText"
+          style="@style/AuthEditText"
           android:layout_marginTop="@dimen/indent_normal"
           android:inputType="textPersonName"
           android:hint="@string/auth.surname"/>
